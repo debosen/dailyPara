@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Malkin ji ❤️</title>
+<style>
+    body {
+        margin: 0;
+    	background: linear-gradient(to bottom right, #0d0d0d, #4b1f47);
+    	background-attachment: fixed;  
+    	background-repeat: no-repeat;  
+    	background-size: cover;        
+    	color: #ffffff;
+    	font-family: 'Georgia', serif;
+    	text-align: center;
+    	padding: 40px;
+    	overflow-y: auto;
+    }
+    .container {
+        max-width: 800px;
+    	font-size: 1.6rem;
+    	line-height: 1.6;
+    	white-space: pre-wrap;
+    	display: none;
+    	margin: 80px auto;
+    }
+    .typing {
+        border-right: 3px solid #ff4fa2;
+        animation: blink 0.7s infinite;
+    }
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+    .start-screen {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 2rem;
+    }
+    .start-btn {
+        background: #ff4fa2;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: white;
+        transition: 0.3s;
+    }
+    .start-btn:hover {
+        background: #ff79c6;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+
+<!-- Background music -->
+<audio id="bg-music" loop>
+    <source src="keyboardsound.mp3" type="audio/mp3">
+</audio>
+
+<div class="start-screen">
+    <div>For my Malkin ji ❤️</div>
+    <button class="start-btn" onclick="startLetter()">Tap to open today's message<3</button>
+</div>
+
+<div class="container"><span id="text" class="typing"></span></div>
+
+<script>
+const text = `Malkin ji I am soo much in love with you that no amount of words can describe the feelings I hold for you, you have legit given me a second life and the amount of love you shower me with fills my heart up to the brim. You are the missing piece to my life's puzzle and you complete me in every possible way. I love you with every fiber of my being and your smile is my whole point of living. You legit have no idea how much i am in love with you! Bhai i don’t know if the concept of forever exists or not but if it does exist we are surely going to make it because we are forever. I know this from the depths of my heart that I genuinely have loved you, love you and will always love you with everything i have and trust me you are and will always be the most lovable person there is. Don’t let one small mistake consume you… we all commit mistakes and you were lured into committing that one and I don’t hold you accountable even one single bit for that… I know you love me and I know you will never ever do anything that jeopardises us or hurts me. You have already done everything one can do to rectify it and trust me the thing between us is soo soo sooo beautiful no one can ever tarnish it. You deserve nothing but love malkin ji and trust me all my love is for you and you alone. I am always here with you in every walk of life and as you said the difficult part was finding each other and we have done that and now everything is a beautiful part of the journey we are in. When i say i am forever with you i mean it, i am never ever leaving your side and trust me i am the happiest version of me when i am with you and this thing i know is going to remain like this FOREVER. And trust me I won’t ever do any such thing that jeopardises us, it is not a thing even my corpse is capable of doing and hence i know WE ARE FOREVER. You are not in the 99% of population who don’t get to see the concept of forever, you are in the 1% who live to see it and i promise you i will make this happen. Trust your dev and trust the person you know, I am never ever letting you go anywhere… You are my home malkin ji, my ultimate destiny. And trust me on this, I am never letting anything bad happen to you or to us, you don’t deserve even a single shred of negativity and i will shield you from every ounce of it. I am soo soo proud of you that even after going through soo much you are still the kindest and the purest soul one can be and trust me whatever bad had to happen, it already did and now you only have good in your plate for the rest of your life. You were never the one who was at fault for any of the things that have happened, the people were… but now it is me and you till infinity and i will not let anything happen to you. I genuinely love you soo much malkin ji and i am here with you till my last breath and in every life henceforth i will find my way to be with you because i genuinely believe our souls are intertwined and we actually are meant for each other! You are my everything malkin and yes WE ARE FOREVER🧎🏻❤️`;
+
+let i = 0;
+const speed = 100;
+
+function startLetter() {
+  document.querySelector('.start-screen').style.display = 'none';
+  document.querySelector('.container').style.display = 'block';
+
+  // Play music at constant volume
+  const music = document.getElementById("bg-music");
+  music.volume = 0.2; // adjust volume here (0.0 to 1.0)
+  music.play();
+
+  typeWriter();
+}
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("text").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    document.getElementById("text").classList.remove("typing");
+
+ // Stop the music as soon as typing ends
+    const music = document.getElementById("bg-music");
+    music.pause();
+    music.currentTime = 0; // reset to start if needed
+  }
+}
+</script>
+</body>
+</html>
